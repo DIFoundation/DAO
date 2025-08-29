@@ -20,10 +20,15 @@ import {
   PieChart,
 } from "lucide-react";
 
-function DAOAdminPage() {
-  const [activeMenu, setActiveMenu] = useState("Overview");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedLoan, setSelectedLoan] = useState(null);
+type MyWalletProps = {
+  onDisconnect: () => void;
+  walletAddress: string;
+};
+
+function DAOAdminPage({ onDisconnect }: MyWalletProps) {
+  const [activeMenu, setActiveMenu] = useState<string>("Overview");
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [selectedLoan, setSelectedLoan] = useState<LoanRequest | null>(null);
 
   const walletAddress = "0xABC1...DEF9";
 
@@ -125,7 +130,38 @@ function DAOAdminPage() {
     },
   ];
 
-  const handleLoanAction = (loanId, action) => {
+  interface LoanRequest {
+    id: number;
+    borrower: string;
+    amount: string;
+    creditScore: number;
+    purpose: string;
+    duration: string;
+    interestRate: string;
+    collateral: string;
+    status: string;
+  }
+
+  interface activeLoans {
+    id: number;
+    borrower: string;
+    amount: string;
+    remaining: string;
+    dueDate: string;
+    status: string;
+  }
+
+  interface governanceProposals {
+    id: number;
+    title: string;
+    votes: number;
+    totalVotes: number;
+    status: string;
+  }
+
+  type LoanAction = "approve" | "reject";
+
+  const handleLoanAction = (loanId: number, action: LoanAction) => {
     console.log(`${action} loan ${loanId}`);
     // Here you would integrate with your smart contract
   };
