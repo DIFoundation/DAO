@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LandingPage() {
+export default function LandingPage({ onWalletConnect }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -29,9 +29,12 @@ export default function LandingPage() {
         </ul>
 
         {/* Connect Wallet */}
-        <p className="md:px-4 py-2 text-xs md:text-sm px-2 rounded-lg font-bold bg-white text-purple-700 cursor-pointer">
+        <button
+          onClick={onWalletConnect}
+          className="md:px-4 py-2 text-xs md:text-sm px-2 rounded-lg font-bold bg-white text-purple-700 cursor-pointer hover:bg-gray-100 transition"
+        >
           Connect Wallet
-        </p>
+        </button>
 
         {/* Hamburger (mobile only) */}
         <button
@@ -80,7 +83,10 @@ export default function LandingPage() {
           DAO Lending is a decentralized protocol that empowers communities to
           provide, manage, and access transparent loans with trust and security.
         </p>
-        <button className="mt-6 px-6 py-3 bg-purple-700 text-white font-bold rounded-lg shadow hover:bg-purple-800">
+        <button
+          onClick={onWalletConnect}
+          className="mt-6 px-6 py-3 bg-purple-700 text-white font-bold rounded-lg shadow hover:bg-purple-800"
+        >
           Get Started
         </button>
       </header>
@@ -139,7 +145,7 @@ export default function LandingPage() {
               "ens.webp",
               "filecoin.png",
               "protocol.png",
-              "symbiotic.webp",
+              "sybmbiotic.png",
             ].map((logo, idx) => (
               <div
                 key={idx}
