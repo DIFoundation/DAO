@@ -18,6 +18,7 @@ import {
   PieChart,
 } from "lucide-react";
 
+feature/dao-components-update
 function DAOAdminPage({ onDisconnect, walletAddress }: { onDisconnect: () => void; walletAddress: string }) {
   const [activeMenu, setActiveMenu] = useState("Overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -34,6 +35,19 @@ function DAOAdminPage({ onDisconnect, walletAddress }: { onDisconnect: () => voi
   } | null>(null);
 
   // const walletAddress = "0xABC1...DEF9"; // Now passed as prop
+
+type MyWalletProps = {
+  onDisconnect: () => void;
+  walletAddress: string;
+};
+
+function DAOAdminPage({ onDisconnect }: MyWalletProps) {
+  const [activeMenu, setActiveMenu] = useState<string>("Overview");
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [selectedLoan, setSelectedLoan] = useState<LoanRequest | null>(null);
+
+  const walletAddress = "0xABC1...DEF9";
+main
 
   const menuItems = [
     { name: "Overview", icon: <Home className="w-5 h-5" /> },
@@ -133,7 +147,42 @@ function DAOAdminPage({ onDisconnect, walletAddress }: { onDisconnect: () => voi
     },
   ];
 
+ feature/dao-components-update
   const handleLoanAction = (loanId: number, action: string) => {
+
+  interface LoanRequest {
+    id: number;
+    borrower: string;
+    amount: string;
+    creditScore: number;
+    purpose: string;
+    duration: string;
+    interestRate: string;
+    collateral: string;
+    status: string;
+  }
+
+  interface activeLoans {
+    id: number;
+    borrower: string;
+    amount: string;
+    remaining: string;
+    dueDate: string;
+    status: string;
+  }
+
+  interface governanceProposals {
+    id: number;
+    title: string;
+    votes: number;
+    totalVotes: number;
+    status: string;
+  }
+
+  type LoanAction = "approve" | "reject";
+
+  const handleLoanAction = (loanId: number, action: LoanAction) => {
+main
     console.log(`${action} loan ${loanId}`);
     // Here you would integrate with your smart contract
   };

@@ -4,10 +4,17 @@ import LandingPage from "@/components/landingPage";
 import Application from "@/components/App";
 import DAOAdmins from "@/components/DAOAdmins";
 
+
+
 export default function Home() {
+ feature/dao-components-update
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [userType, setUserType] = useState<string | null>(null);
   const [connectedWallet, setConnectedWallet] = useState("");
+  const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
+  const [userType, setUserType] = useState<string | null>(null);
+  const [connectedWallet, setConnectedWallet] = useState<string>("");
+ main
 
   const adminWallets = [
     "0xABC1...DEF9", 

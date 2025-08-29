@@ -12,10 +12,22 @@ import {
   Users,
 } from "lucide-react";
 
+ feature/dao-components-update
 function App({ onDisconnect, walletAddress }: { onDisconnect: () => void; walletAddress: string }) {
   const [score] = useState(72);
   const [activeMenu, setActiveMenu] = useState("Dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+type MyWalletProps = {
+  onDisconnect: () => void;
+  walletAddress: string;
+};
+
+function App({ onDisconnect }: MyWalletProps) {
+  const [score] = useState<number>(72);
+  const [activeMenu, setActiveMenu] = useState<string>("Dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+ main
 
   // const walletAddress = "0x1234...89af"; // Now passed as prop
 
