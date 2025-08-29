@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "lucide-react": "^0.542.0",
+    "rc-progress": "^4.0.0"
+  }
+}
