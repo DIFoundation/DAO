@@ -6,7 +6,7 @@ import DAOAdmins from "@/components/DAOAdmins";
 
 export default function Home() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
-  const [userType, setUserType] = useState(null);
+  const [userType, setUserType] = useState<string | null>(null);
   const [connectedWallet, setConnectedWallet] = useState("");
 
   const adminWallets = [

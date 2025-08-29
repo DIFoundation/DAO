@@ -14,18 +14,26 @@ import {
   XCircle,
   AlertTriangle,
   Eye,
-  UserCheck,
-  UserX,
   Gavel,
   PieChart,
 } from "lucide-react";
 
-function DAOAdminPage() {
+function DAOAdminPage({ onDisconnect, walletAddress }: { onDisconnect: () => void; walletAddress: string }) {
   const [activeMenu, setActiveMenu] = useState("Overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [selectedLoan, setSelectedLoan] = useState(null);
+  const [selectedLoan, setSelectedLoan] = useState<{
+    id: number;
+    borrower: string;
+    amount: string;
+    creditScore: number;
+    purpose: string;
+    duration: string;
+    interestRate: string;
+    collateral: string;
+    status: string;
+  } | null>(null);
 
-  const walletAddress = "0xABC1...DEF9";
+  // const walletAddress = "0xABC1...DEF9"; // Now passed as prop
 
   const menuItems = [
     { name: "Overview", icon: <Home className="w-5 h-5" /> },
@@ -125,7 +133,7 @@ function DAOAdminPage() {
     },
   ];
 
-  const handleLoanAction = (loanId, action) => {
+  const handleLoanAction = (loanId: number, action: string) => {
     console.log(`${action} loan ${loanId}`);
     // Here you would integrate with your smart contract
   };
@@ -521,7 +529,7 @@ function DAOAdminPage() {
             {walletAddress}
           </p>
           <button
-            onClick={() => window.location.reload()}
+            onClick={onDisconnect}
             className="bg-red-600 px-2 sm:px-3 py-1 rounded-lg hover:bg-red-700 text-sm"
           >
             Disconnect

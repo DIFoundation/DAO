@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LandingPage({ onWalletConnect }) {
+export default function LandingPage({ onWalletConnect }: { onWalletConnect: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
