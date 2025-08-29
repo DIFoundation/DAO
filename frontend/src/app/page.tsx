@@ -1,11 +1,10 @@
-import NavBar from "@/components/navBar";
+import LandingPage from "@/components/landingPage";
 import Image from "next/image";
-
 
 export default function Home() {
   return (
     <div>
-     <NavBar/>
+      <LandingPage />
     </div>
   );
 }
