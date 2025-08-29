@@ -19,7 +19,7 @@ export default function NavBar() {
         <li> <Link href="/about">About Us</Link> </li>
         <li> <Link href="/contact">Contact Us</Link> </li>
      </ul>
-      <p className="md:px-4 py-2 text-xs md:text-sm px-1 rounded-lg font-bold bg-white text-purple-700 ">Connect Wallet</p>
+      <p className="md:px-4 py-2 text-xs md:text-sm px-1 cursor-pointer rounded-lg font-bold bg-white text-purple-700 ">Connect Wallet</p>
     </nav>
   );
 }
