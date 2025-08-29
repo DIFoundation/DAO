@@ -98,7 +98,7 @@ export default function LandingPage() {
           </p>
         </div>
         <Image
-          src="/illustration-one.png"
+          src="/illustration-one.jpg"
           alt="Why DAO"
           width={500}
           height={400}
@@ -108,7 +108,7 @@ export default function LandingPage() {
 
       <section className="w-full max-w-6xl px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
         <Image
-          src="/illustration-two.png"
+          src="/illustration-two.jpg"
           alt="How it works"
           width={500}
           height={400}
